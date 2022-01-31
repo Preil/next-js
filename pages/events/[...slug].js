@@ -52,7 +52,7 @@ function FilteredEventsPage() {
     return (
       <Fragment>
         <div className="center">
-          <p>No events found for the chosen filter!</p>
+          <ErrorAlert>No events found for the chosen filter!</ErrorAlert>
           <Button link="/events">Show All Events</Button>
         </div>
       </Fragment>
