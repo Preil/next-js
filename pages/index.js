@@ -16,6 +16,7 @@ function HomePage(props) {
 
 // this function provides data for the page to prerender,
 export async function getStaticProps() {
+  console.log('Regenerating...')
   const filePath = path.join(process.cwd(), "data", "dummy-backend.json");
   const jsonData = await fs.readFile(filePath);
   const data = JSON.parse(jsonData);
@@ -23,6 +24,8 @@ export async function getStaticProps() {
     props: {
       products: data.products,
     },
+    // revalidate parameter means that page will be regerated at server side every 10 seconds
+    revalidate: 10
   };
 }
 
